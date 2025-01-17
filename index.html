@@ -1,0 +1,91 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Webpage</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+
+  <nav class=" fixed navbar   top-0 left-0      w-full bg-gray-800     text-white flex justify-between items-center p-4 z-50 shadow-md">
+    <div class="logo text-xl font-bold">Logo</div>
+    <div class="menu-toggle text-3xl cursor-pointer lg:hidden" id="menu-toggle">☰</div>
+    <ul class="nav-links flex space-x-6 lg:flex-row lg:space-x-6 lg:static lg:w-auto lg:space-y-0 hidden lg:flex" id="nav-links">
+      <li><a href="#"    class="hover:text-gray-400">Home</a></li>
+      <li><a href="#" class="hover:text-gray-400">About</a></li>
+      <li><a href="#"       class="hover:text-gray-400">Services</a></li>
+      <li><a href="#" class="hover:text-gray-400">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="container mx-auto p-4" id="page-container">
+
+  
+
+    <div class="content-wrapper flex flex-col  lg:flex-row mt-16     space-y-6 lg:space-y-0 lg:space-x-6">
+
+      <div class="left-menu w-full lg:w-1/4 bg-gray-800 text-white p-4 rounded-lg">
+        <ul>
+          <li><a href="#" class="block py-2   hover:bg-gray-700 rounded">Dashboard</a></li>
+
+          <li><a href="#" class="block py-2 hover:bg-gray-700 rounded">Settings</a></li>
+          <li><a href="#" class="block py-2 hover:bg-gray-700 rounded">Profile</a></li>
+        </ul>
+      </div>
+
+      <div class="main-content flex-1 bg-white p-6 rounded-lg shadow-md">
+        <h1 class="text-2xl font-bold mb-4">this is the main content page</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur <br> adipisicing elit. Voluptatibus, nostrum?</p>
+      </div>
+
+      <div class="   right-panel w-full lg:w-1/4 bg-gray-200 p-4 rounded-lg">
+        <h2 class="text-xl font-semibold mb-4">this is Right Panel</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur 
+          <br> adipisicing elit. Voluptatibus, nostrum?</p>
+      </div>
+
+    </div>
+
+
+
+
+    <footer class="mt-8     text-center text-gray-1000 bg-gray-500">
+      <p>&copy; my footer</p>
+    </footer>
+
+  </div>
+
+  <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('hidden');
+    });
+
+    function resizePage() {
+      const pageContainer = document.getElementById('page-container');
+      const width = window.innerWidth;
+
+      if (width >= 992 && width <= 1600) {
+            pageContainer.style.transform = 'scale(0.9)';
+      } else if (width >= 700 && width <= 767) {
+                   pageContainer.style.transform = 'scale(0.8)';
+      } else if (width >= 600 && width < 700) {
+        pageContainer.style.transform = 'scale(0.75)';
+      } else if (width <= 600) {
+        pageContainer.style.transform = 'scale(0.5)';
+      } else {
+              pageContainer.style.transform = 'scale(1)';
+      }
+    }
+
+    window.addEventListener('resize', resizePage);
+    resizePage();
+  </script>
+
+</body>
+</html>
